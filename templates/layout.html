@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAS App - {{.Title}}</title>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="/" class="flex items-center py-4 px-2">
+                            <span class="font-semibold text-gray-500 text-lg">NAS App</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="/" class="py-4 px-2 text-gray-500 hover:text-gray-900">Home</a>
+                        <a href="/gallery" class="py-4 px-2 text-gray-500 hover:text-gray-900">Gallery</a>
+                        <a href="/albums" class="py-4 px-2 text-gray-500 hover:text-gray-900">Albums</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <div id="auth-buttons">
+                        <!-- This will be replaced by HTMX based on auth status -->
+                        <a href="/login" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-gray-100 hover:text-gray-900">Log In</a>
+                        <a href="/register" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8">
+        {{template "content" .}}
+    </div>
+
+    <footer class="bg-white shadow-lg mt-8">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <p class="text-center text-gray-500">© 2024 NAS App. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

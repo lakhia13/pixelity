@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Minecraft from "next/font/local";
 
+import NavBar from "@/components/navbar";
+
 import "./globals.css";
 
 const minecraftFont = Minecraft({ src: "../public/fonts/Minecraft.otf" });
@@ -14,6 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 	return (
 		<html lang="en">
 			<body className={`${minecraftFont.className} antialiased`}>
+				<NavBar/>
 				{children}
 			</body>
 		</html>

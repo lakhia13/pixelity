@@ -44,10 +44,6 @@ export const authOptions = {
 			},
 		}),
 	],
-
-	// pages: {
-	// 	newUser: "/signup",
-	// },
 	
 	// Write custom callbacks to deal with the custom session and user data
 	callbacks: {

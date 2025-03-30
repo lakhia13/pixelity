@@ -4,6 +4,7 @@ import Minecraft from "next/font/local";
 import NavBar from "@/components/navbar";
 
 import "./globals.css";
+import "@/lib/pixel-retroui-setup.js";
 
 const minecraftFont = Minecraft({ src: "../public/fonts/Minecraft.otf" });
 

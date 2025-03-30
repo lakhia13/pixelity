@@ -30,10 +30,13 @@ export async function POST(request: Request) {
 		const filePath = path.join(uploadDir, filename);
 		fs.writeFileSync(filePath, buffer);
 
+		console.log(`Image saved to ${filePath}`);
+
 		// Return the URL to access the image
 		const imageUrl = `/uploads/${filename}`;
 		return NextResponse.json({ success: true, url: imageUrl });
-	} catch (error) {
+	}
+	catch (error) {
 		console.error('Upload error:', error);
 		return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 });
 	}

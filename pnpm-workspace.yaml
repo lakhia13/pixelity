@@ -1,2 +1,5 @@
 onlyBuiltDependencies:
+  - core-js
+  - fsevents
   - sharp
+  - styled-components

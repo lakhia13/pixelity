@@ -42,11 +42,11 @@ export default function Home() {
 								</AccordionItem>
 
 								<AccordionItem value="item-2">
-									<AccordionTrigger>How does it Work</AccordionTrigger>
+									<AccordionTrigger>How does it work?</AccordionTrigger>
 
 									<AccordionContent>
 										Our android app interfaces with our web login. You can use your old phone as your personal,
-										private cloud server. Your photos will be stores on your device, accessible to you only,
+										private cloud server. Your photos will be stored on your device, accessible to you only,
 										from anywhere you want! 
 									</AccordionContent>
 								</AccordionItem>

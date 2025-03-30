@@ -4,11 +4,26 @@
 // Created: 3/29/25
 //
 
-import CredentialsProvider from "next-auth/providers/credentials";
 import { AuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
 	providers: [
+		GoogleProvider({
+			clientId: process.env.GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+			authorization: {
+				params: {
+					prompt: "consent",
+					access_type: "offline",
+					response_type: "code",
+					scope: "openid email profile"
+				}
+			},
+			checks: ['none']
+		}),
+
 		CredentialsProvider({
 			name: "Credentials",
 			credentials: {
@@ -21,8 +36,6 @@ export const authOptions = {
 					return null;
 				}
 
-				console.log("Credentials: ", credentials);
-
 				return {
 					id: "",
 					username: credentials.username,
@@ -32,22 +45,14 @@ export const authOptions = {
 		}),
 	],
 
-	pages: {
-		signIn: "/signin",
-		newUser: "/signup",
-	},
+	// pages: {
+	// 	newUser: "/signup",
+	// },
 	
 	// Write custom callbacks to deal with the custom session and user data
 	callbacks: {
-		async redirect({ url, baseUrl }: { url: string, baseUrl: string }): Promise<string> {
-			if (url.startsWith("/")) {						// Allows relative callback URLs
-				return `${baseUrl}${url}`;
-			}
-			else if (new URL(url).origin === baseUrl) {	// Allows callback URLs on the same origin
-				return url;
-			}
-
-			return baseUrl;
+		async redirect({ baseUrl }: { baseUrl: string }): Promise<string> {
+			return `${baseUrl}/view`;
 		},
 
 		async session({ session, token }: { session: any, token: any }): Promise<any> {

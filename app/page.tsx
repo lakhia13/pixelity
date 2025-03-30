@@ -32,7 +32,7 @@ export default function Home() {
       			<AccordionItem value="item-1">
         		<AccordionTrigger>Why use Pixelity</AccordionTrigger>
         		<AccordionContent>If you have an old android phone lying around, with no use than gathering dust. And if you 
-					don't want to hand over your photos to Big Data, then you have come to the right place.
+					don&apos;t want to hand over your photos to Big Data, then you have come to the right place.
 				</AccordionContent>
       			</AccordionItem>
       			<AccordionItem value="item-2">

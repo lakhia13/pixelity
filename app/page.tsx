@@ -6,24 +6,43 @@
 
 "use client";
 
-import { Bubble } from "pixel-retroui";
-
+import { Bubble, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "pixel-retroui";
+import Image from "next/image";
 import '@/lib/pixel-retroui-setup.js';
 
 export default function Home() {
 	return (
-		<div>
+		<div className="my-auto">
 			<main>
-				<div className="justify-center items-center my-[300px] flex flex-col">
+				<div className="flex justify-center items-center w-full">
+				<div className="justify-start items-start my-[300px] flex flex-col w-1/3">
 					<Bubble
-						className="flex justify-center items-center w-1/4"
+						className="flex justify-center items-center"
 						direction="left"
 						onClick={ () => {
 							console.log("Clicked");
 						}}
 					>
-						Upload your image
+						Your Images, Under Your Control
 					</Bubble>
+					<Image src="/mascot_no_bg.png" alt="Pixelity Logo" width={300} height={300}/>
+				</div>
+				<div className="justify-end items-end my-[300px] w-1/4 flex flex-col">
+				<Accordion>
+      			<AccordionItem value="item-1">
+        		<AccordionTrigger>Why use Pixelity</AccordionTrigger>
+        		<AccordionContent>If you have an old android phone lying around, with no use than gathering dust. And if you 
+					don't want to hand over your photos to Big Data, then you have come to the right place.
+				</AccordionContent>
+      			</AccordionItem>
+      			<AccordionItem value="item-2">
+        		<AccordionTrigger>How does it Work</AccordionTrigger>
+        		<AccordionContent>Our android app interfaces with our web login. You can use your old phone as your personal, private cloud server.
+					Your photos will be stores on your device, accessible to you only, from anywhere you want! 
+				</AccordionContent>
+     			</AccordionItem>
+    			</Accordion>
+				</div>
 				</div>
 			</main>
 		</div>

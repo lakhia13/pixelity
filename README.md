@@ -26,4 +26,4 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Test it out!
 
-You can check [Pixelity]([https://pixelity.vercel.app/]) - your feedback and contributions are welcome!.
+You can check [Pixelity](https://pixelity.vercel.app/) - your feedback and contributions are welcome!.

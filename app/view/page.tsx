@@ -7,10 +7,12 @@
 "use client";
 
 import { Button } from 'pixel-retroui';
+import Link from "next/link";
 import { useState, JSX } from 'react';
+
 import '@/lib/pixel-retroui-setup.js';
 
-export default function Home() {
+export default function View() {
     const [selectedButton, setSelectedButton] = useState('List');
     const [view, setView] = useState('List');
 
@@ -53,9 +55,20 @@ export default function Home() {
 	return (
 		<div>
 			<main className='relative flex'>
+                    <Link href="/upload">
+                        <Button
+                            className='bg-gray-300'
+                            style={{
+                                backgroundColor: '#e5e7eb',
+                                color: '#6b7280',
+                            }}
+                        >
+                            Upload
+                        </Button>
+                    </Link>
                 <ViewMode/>
 				<div className="absolute right-0 flex justify-end items-start my-4">
-					<Button onClick={() => onClick('Albums')}className={`${selectedButton === 'Albums' ? 'bg-gray-300' : ''}`}
+                    <Button onClick={() => onClick('Albums')}className={`${selectedButton === 'Albums' ? 'bg-gray-300' : ''}`}
                         style={{
 							backgroundColor: selectedButton === 'Albums' ? '#e5e7eb' : 'transparent',
 							color: selectedButton === 'Albums' ? '#1f2937' : '#6b7280',

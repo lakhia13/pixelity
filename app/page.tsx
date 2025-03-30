@@ -7,6 +7,7 @@
 "use client";
 
 import { Bubble, Button, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "pixel-retroui";
+import { getImageProps } from 'next/image'
 import Image from "next/image";
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
@@ -15,14 +16,30 @@ import AuthPopup from "@/components/auth-popup";
 
 import '@/lib/pixel-retroui-setup.js';
 
+function getBackgroundImage(srcSet = '') {
+  const imageSet = srcSet
+    .split(', ')
+    .map((str) => {
+      const [url, dpi] = str.split(' ')
+      return `url("${url}") ${dpi}`
+    })
+    .join(', ')
+  return `image-set(${imageSet})`
+}
+
 export default function Home() {
+	const { props: { srcSet } } = getImageProps({ alt: '', width: 1500, height: 1500, src: "/background.jpeg" })
+	
 	const [isOpen, setIsOpen] = useState(false);
 	
 	const togglePopup = () => setIsOpen((prev) => !prev);
 	
+	const backgroundImage = getBackgroundImage(srcSet)
+  	const style = { height: '100vh', width: '100vw', backgroundImage }
+
 	return (
-		<div className="flex justify-center items-center mt-[100px]">
-			<main className="flex justify-center items-center">
+		<div className="flex justify-center items-center">
+			<main style={style} className="flex justify-center items-center">
 				<div className="flex flex-col items-center">
 					<div className="flex justify-center items-center">
 						<div className="flex flex-col w-1/3">

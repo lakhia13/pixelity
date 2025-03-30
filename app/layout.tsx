@@ -9,7 +9,7 @@ import "@/lib/pixel-retroui-setup.js";
 const minecraftFont = Minecraft({ src: "../public/fonts/Minecraft.otf" });
 
 export const metadata: Metadata = {
-	title: "Pixility",
+	title: "Pixelity",
 	description: "Self-hosted solution to all your photo storage needs; all on one phone.",
 };
 
